@@ -1,0 +1,7 @@
+<div class="form-errors">
+    {% if errors_messages %}
+        {% for message in errors_messages %}
+            {{ message }}
+        {% endfor %}
+    {% endif %}
+</div> <!-- form-errors -->

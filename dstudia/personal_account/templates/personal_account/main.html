@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block title %} Главная страница {% endblock %}
+{% block main %}
+        <div class="container">
+           <div class="recent">
+
+               <div class="recent-header">
+                   <h1>Наши работы</h1>
+               </div>
+
+               <div class="recent-content anim-item">
+
+                   {% if applications %}
+                        {% for application in applications %}
+                           <div class="recent-application">
+                               <div class="recent-application-top">
+                                   <ul class="recent-application-info">
+                                       <li>{{ application.title }}</li>
+                                       <li>{{ application.cat }}</li>
+                                       <li>{{ application.time_create }}</li>
+                                   </ul>
+                               </div>
+
+                               <div class="recent-application-bot">
+                                   <img class="recent-application-img" src="{{ application.image.url }}" alt="#">
+                               </div>
+                           </div>
+                        {% endfor %}
+                   {% endif %}
+
+               </div>  <!-- recent-content -->
+           </div> <!-- recent -->
+
+       </div> <!-- container -->
+       <div id="modal-image" class="modal-image">
+        <span class="modal-image-close">&times;</span>
+        <div class="modal-image-content">
+            <img src="" alt="/">
+            <span class="modal-image-caption">Описание</span>700
+        </div>
+    </div>
+{% endblock %}
+
+{% block other %}
+       <footer class="footer">
+       <div class="container">
+           <div class="footer-top">
+               <div class="footer-content">
+                   <h2>Заявок в работе:</h2>
+                   <span>{{ applications_amount }}</span>
+               </div>
+               <a class="footer-btn" href="{% url 'registration_page' %}">Подать заявку</a>
+           </div> <!-- footer-top -->
+           <div class="footer-bot"></div>
+       </div> <!-- container -->
+   </footer>
+{% endblock %}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'personal_account/css/normalize.css'%}">
+    <link rel="stylesheet" href="{% static 'personal_account/css/header.css'%}">
+    <link rel="stylesheet" href="{% static 'personal_account/css/main.css'%}">
+    <link rel="stylesheet" href="{% static 'personal_account/css/footer.css'%}">
+    <link rel="stylesheet" href="{% static 'personal_account/css/modal_image.css'%}">
+    <link rel="stylesheet" href="{% static 'personal_account/css/style_popup.css' %}">
+    <script defer src="{% static 'personal_account/js/popup.js' %}"></script>
+    <script defer src="{% static 'personal_account/js/main.js' %}"></script>
+    <script defer src="{% static 'personal_account/js/modal_image.js' %}"></script>
+</head>
+<body>
+
+{% if name_page == 'main_page' %}
+    <header class="header-main">
+        {% include 'includes/account_nav.html' %}
+
+        <div class="header-info">
+            <h1>Design studio</h1>
+            <h3>Design studio</h3>
+        </div>
+    </header>
+
+    <main class="main">
+        {% block main %} {% endblock %}
+    </main>
+
+    {% block other %} {% endblock %}
+{% else %}
+    <div class="page-structure">
+        <header class="header">
+            {% include 'includes/account_nav.html' %}
+        </header>
+
+        <main class="main other">
+            {% block main_other %} {% endblock %}
+        </main>
+    </div>
+{% endif %}
+</body>
+</html>

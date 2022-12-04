@@ -1,0 +1,29 @@
+<div id="popup" class="popup">
+    <div class="popup__body">
+        <div class="popup__content">
+            <a href="" class="popup__close closer">Х</a>
+            <div class="popup__title"><p>Изменение статуса</p></div>
+
+            {% include 'includes/errors_messages.html' %}
+
+            <form action="{% url 'applications_management' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="hidden" name="application_pk" value="{{ application.pk }}">
+                <input type="hidden" name="application_status" value="c">
+
+                {% for field in form_complete_popup %}
+                    <div>
+                        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                        {{ field }}
+                    </div>
+                {% endfor %}
+
+                <div class="popup__confirm">
+                    <button type="submit">Изменить статус</button>
+                    <a href="/" id="popup__no" class="confirm__elem closer">Отмена</a>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

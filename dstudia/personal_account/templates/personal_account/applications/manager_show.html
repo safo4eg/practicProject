@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% block title %} Управление заявками {% endblock %}
+
+{% block main_other %}
+ <div class="container">
+     <div class="applications-wrapper user">
+         <div class="a-wrapper-left">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Пользователь</th>
+                        <th>Категория</th>
+                        <th>Название</th>
+                        <th>Статус</th>
+                        <th>Дата</th>
+                        <th colspan="2">Действие</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                {% if applications %}
+                    {% for application in applications %}
+
+                        <tr>
+                            <td>{{ application.current_user }}</td>
+                            <td>{{ application.cat }}</td>
+                            <td>
+                                <a href="{% url 'show_application_info' application_pk=application.pk %}">{{ application.title }}</a>
+                            </td>
+                            <td>{{ application.show_status_message }}</td>
+                            <td>{{ application.time_create }}</td>
+                                {% if application.status == 'n' %}
+                                    <td>
+                                        <a href="/" class="opener accept">Принять</a>
+                                        {% include 'includes/status_accept_popup.html' %}
+                                    </td>
+                                    <td>
+                                        <a href="/" class="opener complete">Завершить</a>
+                                        {% include 'includes/status_complete_popup.html' %}
+                                    </td>
+                                {% elif application.status == 'a' %}
+                                    <td>
+                                        <span>--------</span>
+                                    </td>
+                                    <td>
+                                        <a href="/" class="opener complete">Завершить</a>
+                                        {% include 'includes/status_complete_popup.html' %}
+                                    </td>
+                                {% elif application.status == 'c' %}
+                                    <td>
+                                        <span>------</span>
+                                    </td>
+
+                                    <td>
+                                        <span>------</span>
+                                    </td>
+                                {% endif %}
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td>ПУСТО</td>
+                    </tr>
+                {% endif %}
+                </tbody>
+            </table>
+         </div>
+
+         <div class="a-wrapper-right">
+             <div class="form-wrapper filter">
+                           <span class="form-title filter">Фильтрация</span>
+                           <form action="{% url 'applications_management' %}" method="post">
+                               {% csrf_token %}
+                               {% for field in form_filtering %}
+                               {% if request.user.role == 'MANAGER' %}
+                                    <div class="form-item wrapper filter">
+                                        <label class="label-select" for="{{ field.id_for_label }}">{{ field.label }}</label>
+                                        {{ field }}
+                                    </div>
+                               {% endif %}
+                               {% endfor %}
+                               <input class="form-item button" type="submit" value="Фильтровать">
+                           </form>
+             </div>
+         </div>
+     </div>
+ </div>
+{% endblock %}

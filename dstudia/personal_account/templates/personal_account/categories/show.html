@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %} Управление категориями {% endblock %}
+
+{% block main_other %}
+<div class="container">
+    <div class="categories-page">
+        <div class="categories-list">
+            <span class="title">Доступные категории</span>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Название</th>
+                        <th>Действие</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                {% for category in categories %}
+                    <tr>
+                        <td>{{ category.title }}</td>
+                        <td><a href="{% url 'delete_category' category_pk=category.pk %}">Удалить</a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="categories-create">
+            <div class="form-wrapper">
+                <span class="form-title">Добавить категорию</span>
+                <form action="{% url 'category_page' %}" method="post">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        {{ field }}
+                    {% endfor %}
+                    <input class="form-item button" type="submit" value="Добавить">
+                </form>
+                {% include 'includes/errors_messages.html' %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,67 @@
+{% load static %}
+           <div class="header-line">
+               <div class="header-left">
+                   <img class="header-logo" src="{% static 'personal_account/img/logo.png' %}" alt="logo">
+                   <span class="header-text">Design Studio</span>
+               </div>
+
+               <div class="header-right">
+                   <nav class="nav">
+
+                       {% if user.is_authenticated %}
+
+                            {% if user.role == 'CUSTOMER' %}
+                                {% if name_page == 'create_application' %}
+                                    <span class="nav-item">Создать заявку</span>
+                                {% else %}
+                                    <a class="nav-item" href="{% url 'create_application' %}">Создать заявку</a>
+                                {% endif %}
+
+                                {% if name_page == 'show_applications' %}
+                                    <span class="nav-item">Просмотр заявок</span>
+                                {% else %}
+                                    <a class="nav-item" href="{% url 'show_applications' %}">Просмотр заявок</a>
+                                {% endif %}
+
+                            {% elif user.role == 'MANAGER' %}
+
+                                {% if name_page == 'applications_management' %}
+                                    <span class="nav-item">Управление заявками</span>
+                                {% else %}
+                                    <a class="nav-item" href="{% url 'applications_management' %}">Управление заявками</a>
+                                {% endif %}
+
+                                {% if name_page == 'category_page' %}
+                                    <span class="nav-item">Управление категориями</span>
+                                {% else %}
+                                    <a class="nav-item" href="{% url 'category_page' %}">Управление категориями</a>
+                                {% endif %}
+
+                            {% endif %}
+
+                            <a class="nav-item" href="{% url 'logout_page' %}">Выход</a>
+
+                       {% else %}
+
+                           {% if name_page == 'main_page' %}
+                                <span class="nav-item">Главная</span>
+                            {% else %}
+                                <a class="nav-item" href="{% url 'main_page' %}">Главная</a>
+                            {% endif %}
+
+                            {% if name_page == 'login_page' %}
+                                <span class="nav-item">Вход</span>
+                            {% else %}
+                                <a class="nav-item" href="{% url 'login_page' %}">Вход</a>
+                            {% endif %}
+
+                            {% if name_page == 'registration_page' %}
+                                <span class="nav-item">Регистрация</span>
+                            {% else %}
+                                <a class="nav-item" href="{% url 'registration_page' %}">Регистрация</a>
+                            {% endif %}
+
+                       {% endif %}
+                   </nav>
+               </div>
+           </div> <!-- header-line -->

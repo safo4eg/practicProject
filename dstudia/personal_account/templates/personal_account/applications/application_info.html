@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block title %} {{ application.title }} {% endblock %}
+{% block main_other %}
+<!--подгрузка popup-->
+{% include 'includes/confirm_popup.html' %}
+<div class="container">
+    <div class="a-info-wrapper">
+        <div class="top">
+            <ul class="top-left">
+                <li>{{ application.show_status_message }}</li>
+                <li>{{ application.title }}</li>
+                <li>{{ application.cat }}</li>
+                <li>{{ application.time_create }}</li>
+            </ul>
+
+            <div class="top-right">
+                <p>{{ application.description }}</p>
+            </div>
+        </div>
+
+        <div class="bot">
+            <img src="{{ application.image.url }}" alt="#">
+        </div>
+
+        {% if request.user.role == 'MANAGER' %}
+
+                {% if application.status == 'n' %}
+                    <div class="bot-action">
+                        <a href="/" class="opener complete">Принять</a>
+                        {% include 'includes/status_accept_popup.html' %}
+
+                        <a href="/" class="opener complete">Завершить</a>
+                        {% include 'includes/status_complete_popup.html' %}
+                    </div>
+                {% elif application.status == 'a' %}
+                    <div class="bot-action">
+                        <a href="/" class="opener complete">Завершить</a>
+                        {% include 'includes/status_complete_popup.html' %}
+                    </div>
+                {% endif %}
+
+        {% elif request.user.role == 'CUSTOMER' %}
+            <div class="bot-action">
+                {% if application.status == 'n' %}
+                    <a href="{% url 'edit_application' application_pk=application.pk %}">Редактировать</a>
+                    <a href="/" class="opener">Удалить</a>
+                {% endif %}
+            </div>
+        {% endif %}
+
+        {% if application_comments %}
+            <div class="comment-list">
+                <span class="title">История заявок</span>
+                <div class="comments">
+
+                    {% for comment in application_comments %}
+                        <div class="comment">
+                            <div class="comment-header">
+                                <span class="status">Смена статуса заявки на "{{ comment.show_status_message}}"</span>
+                                <span class="date">{{ comment.time_create }}</span>
+                            </div>
+
+                            <div class="comment-main">
+                                <p class="message">{{ comment.description }}</p>
+
+                                {% if comment.image %}
+                                    <div class="img">
+                                        <img src="{{ comment.image.url }}" alt="">
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif%}
+
+    </div>
+</div>
+{% endblock %}

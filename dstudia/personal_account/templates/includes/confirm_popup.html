@@ -1,0 +1,12 @@
+<div id="popup" class="popup">
+    <div class="popup__body">
+        <div class="popup__content">
+            <a href="" class="popup__close closer">Х</a>
+            <div class="popup__title"><p>Вы уверены?</p></div>
+            <div class="popup__confirm">
+                <a href="{% url 'delete_application' application_pk=application.pk %}" id="popup__yes" class="confirm__elem">Да</a>
+                <a href="" id="popup__no" class="confirm__elem closer">Нет</a>
+            </div>
+        </div>
+    </div>
+</div>

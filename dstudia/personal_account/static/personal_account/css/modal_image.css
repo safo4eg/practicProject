@@ -1,0 +1,68 @@
+/* Модальное окно главной страницы с изображениями */
+
+.modal-image {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-image-content {
+    width: 850px;
+    height: 500px;
+
+    margin: auto;
+
+    text-align: center;
+}
+
+.modal-image-content img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    animation-name: scaleImage;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+}
+
+@keyframes scaleImage {
+    from {
+        transform: scale(0);
+    } to {
+        transform: scale(1);
+    }
+}
+
+.modal-image-close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+
+    color: #fff;
+    font-size: 50px;
+    font-weight: bold;
+
+    transition: color 0.3s ease;
+}
+
+.modal-image-close:hover {
+    color: #adadad;
+    cursor: pointer;
+}
+
+.modal-image-caption {
+    color: #dbdbdb;
+}
+
+.show {
+    display: block;
+}

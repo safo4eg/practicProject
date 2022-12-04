@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %} Новая заявка {% endblock %}
+{% block main_other %}
+<div class="container">
+    <div class="form-wrapper login">
+        <span class="form-title">Создать заявку</span>
+        <form action="{% url 'create_application' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% for field in form %}
+                    {% if field == form.image %}
+                        <div class="form-item wrapper">
+                            {{ field }}
+                        </div>
+                    {% elif field == form.cat %}
+                        <div class="form-item wrapper">">
+                            <label class="label-select" for="{{ field.id_for_label }}">{{ field.label }}</label>
+                            {{ field }}
+                        </div>
+                    {% else %}
+                        {{ field }}
+                    {% endif %}
+                {% endfor %}
+                <input class="form-item button" type="submit" value="Создать">
+        </form>
+        {% include 'includes/errors_messages.html' %}
+    </div>
+</div>
+
+{% endblock %}
+

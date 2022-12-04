@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% block title %} Все заявки {% endblock %}
+
+{% block main_other %}
+<div class="container">
+               <div class="applications-wrapper user">
+                   <div class="a-wrapper-left">
+                       <table>
+                           <thead>
+                               <tr>
+                                   <th>Дата создания</th>
+                                   <th>Название</th>
+                                   <th>Описание</th>
+                                   <th>Категория</th>
+                                   <th>Статус</th>
+                                   <th colspan="2">Действие</th>
+                               </tr>
+                           </thead>
+
+                           <tbody>
+                               {% if users_applications %}
+                                    {% for application in users_applications %}
+                                        <tr>
+                                            <td>{{application.time_create}}</td>
+                                            <td><a href="{% url 'show_application_info' application_pk=application.pk %}">{{application.title}}</a></td>
+                                            <td>{{application.description}}</td>
+                                            <td>{{application.cat}}</td>
+                                            <td>{{application.show_status_message}}</td>
+                                            {% if application.status == 'n' %}
+                                            <td><a href="{% url 'edit_application' application_pk=application.pk %}">Редактировать</a></td>
+                                            <td>
+                                                <a href="/" class="opener">Удалить</a>
+                                                {% include 'includes/confirm_popup.html' %}
+                                            </td>
+                                            {% else %}
+                                            <td>------------</td>
+                                            <td>------------</td>
+                                            {% endif %}
+                                        </tr>
+                                    {% endfor %}
+                               {% else %}
+                                    <tr>
+                                        <td>Пусто</td>
+                                    </tr>
+                               {% endif %}
+                           </tbody>
+                       </table>
+                   </div>
+
+                   <div class="a-wrapper-right">
+                       <div class="form-wrapper filter">
+                           <span class="form-title filter">Фильтрация</span>
+                           <form action="{% url 'show_applications' %}" method="post">
+                               {% csrf_token %}
+                               {% for field in form_filtering %}
+                               {% if request.user.role == 'CUSTOMER' %}
+                                    {% if field != form_filtering.users %}
+                                        <div class="form-item wrapper filter">
+                                            <label class="label-select" for="{{ field.id_for_label }}">{{ field.label }}</label>
+                                            {{ field }}
+                                        </div>
+                                    {% endif %}
+                               {% elif request.user.role == 'CUSTOMER' %}
+                                        <div class="form-item wrapper filter">
+                                            <label class="label-select" for="{{ field.id_for_label }}">{{ field.label }}</label>
+                                            {{ field }}
+                                        </div>
+                               {% endif %}
+                               {% endfor %}
+                               <input class="form-item button" type="submit" value="Фильтровать">
+                           </form>
+                       </div>
+                   </div>
+               </div>
+           </div>
+{% endblock %}

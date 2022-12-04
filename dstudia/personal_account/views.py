@@ -13,7 +13,7 @@ def main_page(request):
     context = {
         'name_page': 'main_page',
         'applications': Application.objects.filter(status='c').order_by('-time_create')[0:4],
-        'applicationaccount_pages_amount': Application.objects.filter(status='a').count(),
+        'applications_amount': Application.objects.filter(status='a').count(),
     }
     return render(request, 'personal_account/main.html', context=context)
 

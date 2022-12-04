@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="128c04f2-090c-4d7c-b739-fa1cd67b9f92" name="Changes" comment="Add Files">
+      <change beforePath="$PROJECT_DIR$/dstudia/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/dstudia/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dstudia/personal_account/templates/includes/account_nav.html" beforeDir="false" afterPath="$PROJECT_DIR$/dstudia/personal_account/templates/includes/account_nav.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dstudia/personal_account/templates/personal_account/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/dstudia/personal_account/templates/personal_account/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dstudia/personal_account/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/dstudia/personal_account/views.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="a7596564-9742-4014-9338-3636e4e49f58" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2GPRX1Q4hjY2KI1nyLNaOzCe6Ua" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/user/Desktop/pythonProject2",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\user\Desktop\pythonProject2\dstudia\personal_account\static\personal_account\img" />
+      <recent name="C:\Users\user\Desktop\pythonProject2\dstudia\personal_account" />
+      <recent name="C:\Users\user\Desktop\pythonProject2\dstudia\personal_account\templates\personal_account\auth" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\user\AppData\Roaming\Subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="128c04f2-090c-4d7c-b739-fa1cd67b9f92" name="Changes" comment="" />
+      <created>1666288267702</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1666288267702</updated>
+    </task>
+    <task id="LOCAL-00001" summary="jjj">
+      <created>1670167035376</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1670167035376</updated>
+    </task>
+    <task id="LOCAL-00002" summary="start">
+      <created>1670167358711</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1670167358711</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Add Files">
+      <created>1670168201723</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1670168201723</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Add Files">
+      <created>1670173474217</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1670173474217</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/dstudia" />
+    </ignored-roots>
+    <MESSAGE value="jjj" />
+    <MESSAGE value="start" />
+    <MESSAGE value="Add Files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Files" />
+  </component>
+</project>

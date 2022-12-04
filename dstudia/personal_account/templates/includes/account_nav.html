@@ -11,6 +11,13 @@
                        {% if user.is_authenticated %}
 
                             {% if user.role == 'CUSTOMER' %}
+
+                                {% if name_page == 'main_page' %}
+                                    <span class="nav-item">Главная</span>
+                                {% else %}
+                                    <a class="nav-item" href="{% url 'main_page' %}">Главная</a>
+                                {% endif %}
+
                                 {% if name_page == 'create_application' %}
                                     <span class="nav-item">Создать заявку</span>
                                 {% else %}
@@ -25,16 +32,22 @@
 
                             {% elif user.role == 'MANAGER' %}
 
-                                {% if name_page == 'applications_management' %}
-                                    <span class="nav-item">Управление заявками</span>
+                                {% if name_page == 'main_page' %}
+                                    <span class="nav-item">Главная</span>
                                 {% else %}
-                                    <a class="nav-item" href="{% url 'applications_management' %}">Управление заявками</a>
+                                    <a class="nav-item" href="{% url 'main_page' %}">Главная</a>
+                                {% endif %}
+
+                                {% if name_page == 'applications_management' %}
+                                    <span class="nav-item">Заявки</span>
+                                {% else %}
+                                    <a class="nav-item" href="{% url 'applications_management' %}">Заявки</a>
                                 {% endif %}
 
                                 {% if name_page == 'category_page' %}
-                                    <span class="nav-item">Управление категориями</span>
+                                    <span class="nav-item">Категории</span>
                                 {% else %}
-                                    <a class="nav-item" href="{% url 'category_page' %}">Управление категориями</a>
+                                    <a class="nav-item" href="{% url 'category_page' %}">Категории</a>
                                 {% endif %}
 
                             {% endif %}
